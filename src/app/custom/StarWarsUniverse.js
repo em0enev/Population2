@@ -36,51 +36,51 @@ export default class StarWarsUniverse extends EventEmitter {
         // await planet.populate()
     }
 
-    async _findPlanetWithoutPopulation() {
-        const planets = await this._fetchAllPlanets();
-        return planets.find(({ population }) => population === "0")
-    }
+    // async _findPlanetWithoutPopulation() {
+    //     const planets = await this._fetchAllPlanets();
+    //     return planets.find(({ population }) => population === "0")
+    // }
 
-    async _fetchAllPlanets() {
-        let planets = []
-        const res = await fetch(StarWarsUniverse.apiURL.PLANETS)
-        let { next, results } = await res.json();
+    // async _fetchAllPlanets() {
+    //     let planets = []
+    //     const res = await fetch(StarWarsUniverse.apiURL.PLANETS)
+    //     let { next, results } = await res.json();
 
-        planets = [...results]
-        while (next !== null) {
-            const res = await fetch(next)
-            let data = await res.json();
+    //     planets = [...results]
+    //     while (next !== null) {
+    //         const res = await fetch(next)
+    //         let data = await res.json();
 
-            planets = [...planets, ...data.results]
-            next = data.next
-        }
+    //         planets = [...planets, ...data.results]
+    //         next = data.next
+    //     }
 
-        return planets
-    }
+    //     return planets
+    // }
 
-    async _fetchFirstTenPpl(){
-        const res = await fetch(StarWarsUniverse.apiURL.PEOPLE)
-        let { results } = await res.json();
+    // async _fetchFirstTenPpl(){
+    //     const res = await fetch(StarWarsUniverse.apiURL.PEOPLE)
+    //     let { results } = await res.json();
 
-        return results
-    }
+    //     return results
+    // }
 
-    async _onPersonBorn(data){
-        for (const candidate of data.filmUrls) {
-            if(!this._chekIfFilmExist(candidate)){
-                const film = new Film(candidate)
-                this.films.push(film)
-                this.emit(StarWarsUniverse.events.FILM_ADDED)
-            }
-        }
-    }
+    // async _onPersonBorn(data){
+    //     for (const candidate of data.filmUrls) {
+    //         if(!this._chekIfFilmExist(candidate)){
+    //             const film = new Film(candidate)
+    //             this.films.push(film)
+    //             this.emit(StarWarsUniverse.events.FILM_ADDED)
+    //         }
+    //     }
+    // }
 
-    _chekIfFilmExist(filmUrl){
-        for (const item of this.films) {
-            if(filmUrl === item.filmUrl){
-                return true;
-            }
-        }
-        return false;   
-    }
+    // _chekIfFilmExist(filmUrl){
+    //     for (const item of this.films) {
+    //         if(filmUrl === item.filmUrl){
+    //             return true;
+    //         }
+    //     }
+    //     return false;   
+    // }
 }
