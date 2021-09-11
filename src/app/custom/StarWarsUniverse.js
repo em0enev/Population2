@@ -29,9 +29,9 @@ export default class StarWarsUniverse extends EventEmitter {
         const p = await this._findPlanetWithoutPopulation();
         const firstTenPpl = await this._fetchFirstTenPpl();
 
-        const planet = new Planet(p.name, this.config, firstTenPpl)
-        planet.on(Planet.events.PERSON_BORN, async (data) => await this._onPersonBorn(data))
-        planet.on(Planet.events.POPULATING_COMPLETE, () => this.emit(StarWarsUniverse.events.UNIVERSE_POPULATED))
+        // const planet = new Planet(p.name, this.config, firstTenPpl)
+        // planet.on(Planet.events.PERSON_BORN, async (data) => await this._onPersonBorn(data))
+        // planet.on(Planet.events.POPULATING_COMPLETE, () => this.emit(StarWarsUniverse.events.UNIVERSE_POPULATED))
         // this.planet = planet;
         // await planet.populate()
     }
