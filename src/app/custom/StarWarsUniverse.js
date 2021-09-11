@@ -26,8 +26,8 @@ export default class StarWarsUniverse extends EventEmitter {
     }
 
     async init() {
-        const p = await this._findPlanetWithoutPopulation();
-        const firstTenPpl = await this._fetchFirstTenPpl();
+        // const p = await this._findPlanetWithoutPopulation();
+        // const firstTenPpl = await this._fetchFirstTenPpl();
 
         // const planet = new Planet(p.name, this.config, firstTenPpl)
         // planet.on(Planet.events.PERSON_BORN, async (data) => await this._onPersonBorn(data))
