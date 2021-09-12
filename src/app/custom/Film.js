@@ -1,8 +1,8 @@
-// import { EventEmitter } from "eventemitter3";
+import { EventEmitter } from "eventemitter3";
 
-// export default class Film extends EventEmitter{
-//     constructor(filmUrl){
-//         super();
-//         this.filmUrl = filmUrl;
-//     }
-// }
+export default class Film{
+    constructor(filmUrl){
+
+        this.filmUrl = filmUrl;
+    }
+}

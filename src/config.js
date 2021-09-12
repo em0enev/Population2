@@ -1,4 +1,4 @@
-// const populationDelay = 1;
-// export default {
-//     populationDelay
-// };
+const populationDelay = 1;
+export default {
+    populationDelay
+};
