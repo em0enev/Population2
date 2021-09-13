@@ -35,6 +35,7 @@ export default class StarWarsUniverse extends EventEmitter {
         this.planet.on(Planet.events.POPULATING_COMPLETE,() => this.emit(StarWarsUniverse.events.UNIVERSE_POPULATED))
 
         await this.planet.populate()
+        this.planet.emit(Planet.events.POPULATING_COMPLETE)
     }
 
     async _findPlanetWithoutPopulation() {
