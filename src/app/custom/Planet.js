@@ -1,5 +1,4 @@
 import { EventEmitter } from "eventemitter3";
-import config from "../../config";
 import delay from "../utils";
 import Person from "./Person";
 
@@ -8,7 +7,7 @@ export default class Planet extends EventEmitter{
         super();
         this.name = name;
         this.config = config;
-        this.peopleData = peopleData // data for  first 10 ppl
+        this.peopleData = peopleData // data for first 10 ppl
         this.population = [];
     }
 
