@@ -14,7 +14,7 @@ export default class Planet extends EventEmitter{
     static get events() {
         return {
             PERSON_BORN: "person_born",
-            POPULATING_COMPLETE: "populating_complete"
+            POPULATING_COMPLETE: "populating_completed"
         }
     }
 
@@ -24,11 +24,8 @@ export default class Planet extends EventEmitter{
 
     async populate(){
         if(this.peopleData.length === 0){
-            this.emit(Planet.events.POPULATING_COMPLETE)
-            console.log("complete")
             return;
         }
-
         await delay(this.config.populationDelay);
         const personData = this.peopleData.shift();
         const person = new Person(personData.name, personData.height, personData.mass)

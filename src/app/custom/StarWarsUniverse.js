@@ -32,7 +32,7 @@ export default class StarWarsUniverse extends EventEmitter {
         this.planet = new Planet(p.name, this.config, firstTenPpl)
 
         this.planet.on(Planet.events.PERSON_BORN, (data) => this._onPersonBorn(data))
-        this.planet.on(Planet.events.POPULATING_COMPLETE, () => this.emit(Planet.events.POPULATING_COMPLETE))
+        this.planet.on(Planet.events.POPULATING_COMPLETE,() => this.emit(StarWarsUniverse.events.UNIVERSE_POPULATED))
 
         await this.planet.populate()
     }

@@ -32,15 +32,10 @@ export default class Application extends EventEmitter {
    * The APP_READY event should be emitted at the end of this method.
    */
   async init() {
-    // Initiate classes and wait for async operations here.
-
+    // Initiate classes and wait for async operations here
     this.data.universe = new StarWarsUniverse();
-    this.data.universe.on(Planet.events.POPULATING_COMPLETE, () => this.emit(StarWarsUniverse.events.UNIVERSE_POPULATED))
-    this.data.universe.on(Planet.events.POPULATING_COMPLETE, () => this.data.universe.emit(StarWarsUniverse.events.UNIVERSE_POPULATED))
-
     await this.data.universe.init();
-
-    console.log(this.data.universe.planet)
+    
     this.emit(Application.events.APP_READY);
   }
 }
